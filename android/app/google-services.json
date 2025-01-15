@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "266926054695",
+    "project_id": "auth-river",
+    "storage_bucket": "auth-river.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266926054695:android:cd2d18e18f0b28d74d9d02",
+        "android_client_info": {
+          "package_name": "com.example.fb_auth_riverpod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa4lmr6zKiuSaGtWyjJZwmnbWL8BTw4j0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
