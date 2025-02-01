@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:fb_auth_riverpod/config/router/route_names.dart';
 import 'package:fb_auth_riverpod/constants/firebase_constants.dart';
 import 'package:fb_auth_riverpod/models/custom_error.dart';
-import 'package:fb_auth_riverpod/repositories/auth_repository_provider.dart';
+import 'package:fb_auth_riverpod/repositories/auth/auth_repository_provider.dart';
 import 'package:fb_auth_riverpod/utils/error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

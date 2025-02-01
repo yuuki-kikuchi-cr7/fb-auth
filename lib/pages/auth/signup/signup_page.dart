@@ -62,7 +62,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         body: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(
@@ -76,8 +76,8 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                 shrinkWrap: true,
                 children: [
                   const Text(
-                    "Signup",
-                    style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),
+                    "Sign Up",
+                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   // const FlutterLogo(
@@ -117,8 +117,9 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                     fontSize: 20.0,
                     child: Text(
                       signupState.maybeWhen(
-                          loading: () => "Submitting...",
-                          orElse: () => "Sign UP"),
+                        loading: () => "Submitting...",
+                        orElse: () => "Sign UP",
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -129,7 +130,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                     children: [
                       const Text("Already a member?"),
                       const SizedBox(
-                        width: 5,
+                        width: 10,
                       ),
                       CustomTextButton(
                         onPressed: signupState.maybeWhen(

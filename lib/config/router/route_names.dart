@@ -1,5 +1,7 @@
 class RouteNames {
   static const home = 'home';
+  static const second = 'second';
+  static const profile = 'profile';
   static const signin = 'signin';
   static const signup = 'signup';
   static const resetPassword = 'resetPassword';

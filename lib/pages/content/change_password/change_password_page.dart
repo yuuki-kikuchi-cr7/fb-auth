@@ -3,7 +3,7 @@ import 'package:fb_auth_riverpod/pages/content/change_password/change_password_p
 import 'package:fb_auth_riverpod/pages/content/reauthenticate/reauthenticate_page.dart';
 import 'package:fb_auth_riverpod/pages/widgets/buttons.dart';
 import 'package:fb_auth_riverpod/pages/widgets/form_fields.dart';
-import 'package:fb_auth_riverpod/repositories/auth_repository_provider.dart';
+import 'package:fb_auth_riverpod/repositories/auth/auth_repository_provider.dart';
 import 'package:fb_auth_riverpod/utils/error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -114,7 +114,6 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
                         TextSpan(
                           text: 'you will be ',
                           style: TextStyle(
-                            color: Colors.black,
                             fontSize: 18,
                           ),
                           children: [

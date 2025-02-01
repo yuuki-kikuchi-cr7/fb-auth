@@ -27,8 +27,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'fb_auth',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: ThemeData.dark(
         useMaterial3: true,
       ),
       routerConfig: router,

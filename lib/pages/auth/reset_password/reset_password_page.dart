@@ -78,7 +78,7 @@ class _ResetPasswordPageState extends ConsumerState<ResetPasswordPage> {
                 children: [
                   const Text(
                     "Reset Password",
-                    style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold,),
+                    style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 20.0),
@@ -103,6 +103,7 @@ class _ResetPasswordPageState extends ConsumerState<ResetPasswordPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text('Remember password? '),
+                      const SizedBox(width: 10,),
                       CustomTextButton(
                         onPressed: resetPwdState.maybeWhen(
                           loading: () => null,

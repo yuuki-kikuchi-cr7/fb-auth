@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart';
 
-class ConfirmPasswordField extends StatelessWidget {
+class ConfirmPasswordField extends StatefulWidget {
   const ConfirmPasswordField(
       {super.key,
       required TextEditingController passwordController,
@@ -12,17 +12,33 @@ class ConfirmPasswordField extends StatelessWidget {
   final String labelText;
 
   @override
+  State<ConfirmPasswordField> createState() => _ConfirmPasswordFieldState();
+}
+
+class _ConfirmPasswordFieldState extends State<ConfirmPasswordField> {
+  bool _isObscure = true;
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: true,
+      obscureText: _isObscure,
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         filled: true,
-        labelText: labelText,
+        labelText: widget.labelText,
         prefixIcon: const Icon(Icons.lock),
+        suffixIcon: IconButton(
+          onPressed: () {
+            setState(() {
+              _isObscure = !_isObscure;
+            });
+          },
+          icon: Icon(
+            _isObscure ? Icons.visibility_off : Icons.visibility,
+          ),
+        ),
       ),
       validator: (String? value) {
-        if (_passwordController.text != value) {
+        if (widget._passwordController.text != value) {
           return "Passwords not match";
         }
         return null;

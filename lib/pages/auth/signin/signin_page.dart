@@ -2,6 +2,7 @@ import 'package:fb_auth_riverpod/config/router/route_names.dart';
 import 'package:fb_auth_riverpod/models/custom_error.dart';
 import 'package:fb_auth_riverpod/pages/auth/signin/signin_provider.dart';
 import 'package:fb_auth_riverpod/pages/widgets/buttons.dart';
+import 'package:fb_auth_riverpod/pages/widgets/custom_loader.dart';
 import 'package:fb_auth_riverpod/pages/widgets/form_fields.dart';
 import 'package:fb_auth_riverpod/utils/error_dialog.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,21 @@ class _SigninPageState extends ConsumerState<SigninPage> {
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 初回だけローディングを適用
+    if (ref.read(firstLoadProvider)) {
+      Future.delayed(const Duration(seconds: 2), () {
+        if (mounted) {
+          ref.read(firstLoadProvider.notifier).state =
+              false; // 初回のロードが終わったらfalseにする
+        }
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -56,6 +72,14 @@ class _SigninPageState extends ConsumerState<SigninPage> {
     );
 
     final signinState = ref.watch(signinProvider);
+    final isFirstLoad = ref.watch(firstLoadProvider);
+
+    // **初回の遷移時のみローディングを表示**
+    if (isFirstLoad) {
+      return const Scaffold(
+        body: CustomLoader(),
+      );
+    }
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -71,8 +95,11 @@ class _SigninPageState extends ConsumerState<SigninPage> {
                 reverse: true,
                 children: [
                   const Text(
-                    "Signin",
-                    style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold,),
+                    "Sign In",
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   // const FlutterLogo(
@@ -106,7 +133,7 @@ class _SigninPageState extends ConsumerState<SigninPage> {
                     children: [
                       const Text('Not a member? '),
                       const SizedBox(
-                        width: 5,
+                        width: 10,
                       ),
                       CustomTextButton(
                         onPressed: signinState.maybeWhen(
@@ -127,8 +154,8 @@ class _SigninPageState extends ConsumerState<SigninPage> {
                       orElse: () =>
                           () => context.goNamed(RouteNames.resetPassword),
                     ),
-                    foregroundColor: Colors.red,
-                    fontSize: 16.0,
+                    foregroundColor: const Color.fromARGB(255, 179, 80, 73),
+                    fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     child: const Text('Forgot Password?'),
                   )

@@ -1,4 +1,5 @@
-import 'package:fb_auth_riverpod/repositories/auth_repository_provider.dart';
+import 'package:fb_auth_riverpod/repositories/auth/auth_repository_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'signin_provider.g.dart';
@@ -21,3 +22,6 @@ class Signin extends _$Signin {
     );
   }
 }
+
+final firstLoadProvider = StateProvider<bool>((ref) => true);
+

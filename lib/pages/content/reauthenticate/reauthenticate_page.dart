@@ -1,6 +1,6 @@
 import 'package:fb_auth_riverpod/models/custom_error.dart';
 import 'package:fb_auth_riverpod/pages/widgets/form_fields.dart';
-import 'package:fb_auth_riverpod/repositories/auth_repository_provider.dart';
+import 'package:fb_auth_riverpod/repositories/auth/auth_repository_provider.dart';
 import 'package:fb_auth_riverpod/utils/error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -79,7 +79,7 @@ class _ReauthenticatePageState extends ConsumerState<ReauthenticatePage> {
                 const Text(
                   'This is a security-sesitive operation\nyou must have recently signed-in!',
                   style: TextStyle(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 179, 80, 73),
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
                   ),

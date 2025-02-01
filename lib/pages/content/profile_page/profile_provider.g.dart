@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_provider.dart';
+part of 'profile_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$profileHash() => r'1cce51b8d42645007251d33ac198e876e75c4c93';
+String _$profileHash() => r'0c6b6be64f98149f47f81ccb9166a2ebdded4f1f';
 
 /// Copied from Dart SDK
 class _SystemHash {

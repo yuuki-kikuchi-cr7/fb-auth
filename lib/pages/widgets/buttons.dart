@@ -17,6 +17,7 @@ class CustomFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FilledButton(
       style: FilledButton.styleFrom(
+        backgroundColor: Colors.white,
         textStyle: TextStyle(
           fontSize: fontSize,
           fontWeight: fontWeight,
